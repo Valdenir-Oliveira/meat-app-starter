@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw'
 import { Restaurant } from "./restaurant/restaurant.model";
 import { MEAT_API } from '../app.api';
 import { ErrorHandler } from '../app.error-handler'
+import { MenuItem } from 'app/restaurant-detail/menu-item/menu-item.model';
 
 
 
@@ -33,6 +34,12 @@ export class RestaurantService {
     reviewsOfRestaurant(id: string): Observable<any>{
         return this.http.get(`${MEAT_API}/restaurants/${id}/reviews`)
         .map(response => response.json())
-        ._catch(ErrorHandler.handleError)
+        .catch(ErrorHandler.handleError)
+    }
+
+    menuOfRestaurant(id: string): Observable<MenuItem[]>{
+        return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
+        .map(response => response.json())
+        .catch(ErrorHandler.handleError)
     }
 }
