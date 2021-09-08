@@ -12,8 +12,9 @@ import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from "./messages/snackbar/notification.service";
 
 
+
 @NgModule({
-    declarations: [InputComponent, RadioComponent,RatingComponent, SnackbarComponent],
+    declarations: [InputComponent, RadioComponent,RatingComponent, SnackbarComponent,],
     imports: [CommonModule, FormsModule, ReactiveFormsModule],
     exports: [InputComponent, RadioComponent,RatingComponent, SnackbarComponent,
          CommonModule, FormsModule, ReactiveFormsModule]
