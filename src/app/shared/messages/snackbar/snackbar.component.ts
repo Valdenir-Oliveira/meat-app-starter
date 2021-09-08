@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { NotificationService } from './notification.service';
+import { Observable } from 'rxjs';
+import 'rxjs/add/observable/timer'
+
 
 
 @Component({
@@ -22,13 +26,18 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   ]
 })
 export class SnackbarComponent implements OnInit {
-  message: string = 'OOOOH HELLO THERE'
+  message: string 
 
   snackVisibility: string = 'hidden'
 
-  constructor() { }
+  constructor(private notifiacationService: NotificationService) { }
 
   ngOnInit() {
+    this.notifiacationService.notifier.subscribe(message =>{
+      this.message = message
+      this.snackVisibility = 'visible'
+      Observable.timer(3000).subscribe(timer=> this.snackVisibility = 'hidden')
+    })
   }
 
   
