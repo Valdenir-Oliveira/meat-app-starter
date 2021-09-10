@@ -22,6 +22,13 @@ var options = {
     cert: fs.readFileSync('./backend/keys/cert.pem'),
     key: fs.readFileSync('./backend/keys/key.pem')
 };
+var cors = require("cors");
+var corsOptions = {
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200
+};
+server.use(cors(corsOptions)); // Use this after the variable declaration
 https.createServer(options, server).listen(3001, function () {
     console.log('JSON Server is running on https://localhost:3001');
 });
