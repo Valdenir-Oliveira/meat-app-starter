@@ -11,7 +11,7 @@ import { RestaurantService } from "app/restaurants/restaurant.service";
 import { SnackbarComponent } from './messages/snackbar/snackbar.component';
 import { NotificationService } from "./messages/snackbar/notification.service";
 import { LoginService } from "../security/login/login.service";
-
+import { LoggedInGuard } from "../security/loggedin.guard";
 
 
 @NgModule({
@@ -25,10 +25,11 @@ export class SharedModule {
         return{
             ngModule: SharedModule,
             providers:[ShoppingCartService,
-                 RestaurantService,
-                  OrderService,
-                   NotificationService,
-                LoginService]
-        }
+                        RestaurantService,
+                        OrderService,
+                        NotificationService,
+                        LoginService,
+                        LoggedInGuard]
+            }
     }
 }
