@@ -19,8 +19,8 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 
 //imports moeda BR//
-import'intl'
-import'intl/locale-data/jsonp/pt-BR.js'
+//import'intl'
+//import'intl/locale-data/jsonp/pt-BR.js'
 
 import 'web-animations-js/web-animations.min.js'
 
